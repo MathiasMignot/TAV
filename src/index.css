@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+   *{
+      box-sizing: border-box;
+      
+   }    
+
+    .header{
+        background-color: lightsteelblue;
+    }
+    .headerUp{
+      justify-content: right;
+      margin: 0;
+        @apply flex place-content-between p-4 w-[100%]
+    }
+    .button-headerUp-nav{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+
+    }
+    .btnHeader{
+        background-color: lightgray;
+        padding: 0.5rem;
+        height: 100%;
+        border: solid 1px;
+        border-radius:  5px ;
+        width: 100%;
+        margin: 0;
+        box-shadow: 10px;
+     }
+     body{
+      background-attachment: fixed;
+   
+      @apply  bg-bethel bg-cover bg-center 
+   }
+
+     .containerNav{
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        @apply flex
+
+     }
+     .container_link_homePage{
+      
+        @apply bg-[#D3D0CB] w-[90%] bg-opacity-50 flex flex-wrap justify-center  m-auto py-2
+
+     }
+     .container_link_homePage_item{
+        @apply w-[40%] bg-[#D3D0CB] border-2 border-[#393E41] text-center py-4 px-4 m-2 shadow-xl rounded-xl hover:bg-[#E7BB41] 
+    }
+   .bodyHomePage{
+      @apply w-[100%] mt-[2rem]
+   }
+   .link_homePage_span{
+      @apply text-[1rem] w-[100%] 
+   }
+   .div_span_Homepage{
+      @apply mt-4
+   }
+   .link{
+      @apply w-[100%]
+   }
+   .logo{
+      @apply w-[35%] rounded-xl
+   }
+      
+
+  
+  .documentsContainer{
+   display:flex;
+   flex-wrap: wrap;
+   width:100vw;
+   height: auto;
+  }
+  
+  
+  .liHeader{
+   height: 100%;
+   padding: 0px;
+  }
+  a{
+   width: 100%;
+   margin: 0 0;
+   padding: 1px;
+  }
+
+  .formContainer{
+   display: flex;
+   justify-content:space-between;
+   width: 95%;
+   background-color: lightgray;
+   padding: 1rem;
+   border-radius: 0.75rem;
+   margin: auto;
+   position: relative;
+   bottom: 20px;
+   left: 10px;
+   margin-top: 1rem;
+   position: sticky;
+   bottom: 20px;
+   left: 10px;
+   margin-top: 1rem;
+  
+  }
+  .fileInput{
+   width: 40%;
+   border-radius: 5px;
+   padding: 0.5rem;
+  }
+
+  .textInput{
+   width: 35%;
+   border-radius: 5px;
+   text-align: center;
+  }
+  .btnForm{
+   background-color: white;
+   
+   padding: 0.5rem;
+   border-radius: 5px;
+  }
+  
+
+
+.material-symbols-outlined {
+   display: block;
+   background-color:#D3D0CB ;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.singleDoc{
+   width: 95%;
+   height: auto;
+   margin: 0 auto;
+}
+
+.button-headerUp{
+
+   background-color: #F7E9D6;
+   padding: 0.5rem;
+   border-radius: 0.5rem;
+   margin-bottom: 10px;
+   box-shadow: 3px 3px grey;
+}
+
+.formContainerLogin{
+   display: flex;
+   flex-direction: column;
+   justify-content:space-around;
+   height: auto;
+   width: 95%;
+   background-color: lightgray;
+   padding: 1rem;
+   border-radius: 0.75rem;
+   margin: 0 auto;
+   margin-top: 10rem;
+   position:sticky;
+   bottom: 10px ;
+}
+
+.btnFormLogin{
+   align-self: flex-end;
+   margin-top: 1rem;
+   margin-right: 1rem;
+   background-color: #B0C4DE;
+   border-radius: 1rem;
+   padding: 0.75rem;
+   border:solid 1px;
+   font-weight: bold;
+   transition: background-color .2s ease ; 
+}
+
+.btnFormLogin:hover{
+
+   background-color: rgba(0, 255, 255, 0.493);
+}
+
+.pageTitleDiv{
+   margin-top: 1rem;
+   
+}
+.pageTitle{
+   background-color: #F7EAD6;
+   display: inline;
+   padding: 0.5rem;
+   border-radius: 5px;
+   text-align: center;
+   font-size: x-large;
+
+   
+}
+.titlePageDiv{
+   display: flex;
+   justify-content: center;
+}
+     
+.titleDocContainer{
+   
+   background-color: lightsteelblue;
+   text-align: center;
+   border:solid beige 5px;
+   font-weight:600;
+   font-size: larger;
+   
+
+
+}
+.documentContainer{
+   display: flex;
+   flex-direction: column;
+   width: 40%;
+   margin: 0 auto;
+   margin-top: 1rem;
+   padding: 0 0;
+
+  }
+  .imgItem{
+   margin: 0 auto;
+   border-bottom-left-radius: 0.5rem;
+   border-bottom-right-radius: 0.5rem;
+
+   border:solid #F7EAD6 4px;
+   border-top: none;
+  }
+}
