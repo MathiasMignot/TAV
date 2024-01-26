@@ -59,7 +59,7 @@ const handleConnect = (e) => {
 
             <label htmlFor="password">Votre mot de passe</label>
             <input type="password" id="password" placeholder="Votre mot de passe" />
-            <button className="btnFormLogin" type="submit">{isConnected}</button>
+            <button className="btnFormLogin" type="submit">Se connecter</button>
 
         </form>
     )

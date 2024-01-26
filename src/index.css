@@ -7,6 +7,7 @@
       box-sizing: border-box;
       
    }    
+   
 
     .header{
         background-color: lightsteelblue;
@@ -32,27 +33,33 @@
         width: 100%;
         margin: 0;
         box-shadow: 10px;
+        @apply laptop:transition-all hover:bg-[#F8ECDA] hover:w-[110%] hover:h-[110%] hover:border-2 
      }
      body{
       background-attachment: fixed;
+      height: 100%;
    
       @apply  bg-bethel bg-cover bg-center 
    }
 
      .containerNav{
-        justify-content: space-between;
-        margin-bottom: 1rem;
-        @apply flex
+      display: flex;
+      justify-content: space-around;
+       padding-bottom: 1rem;
 
      }
+     
      .container_link_homePage{
       
-        @apply bg-[#D3D0CB] w-[90%] bg-opacity-50 flex flex-wrap justify-center  m-auto py-2
+        @apply bg-[#D3D0CB] w-[90%] bg-opacity-50 flex flex-wrap justify-center  m-auto py-2;
+        @apply laptop:w-[90%] flex place-content-evenly py-8 
 
      }
      .container_link_homePage_item{
-        @apply w-[40%] bg-[#D3D0CB] border-2 border-[#393E41] text-center py-4 px-4 m-2 shadow-xl rounded-xl hover:bg-[#E7BB41] 
-    }
+        @apply w-[40%] bg-[#D3D0CB] border-2 border-[#393E41] text-center py-4 px-4 m-2 shadow-xl rounded-xl hover:bg-[#E7BB41] ;
+        @apply laptop:w-[20%] border-4 transition-all hover:bg-blue-600 hover:w-[21%]
+  
+      }
    .bodyHomePage{
       @apply w-[100%] mt-[2rem]
    }
@@ -66,22 +73,33 @@
       @apply w-[100%]
    }
    .logo{
-      @apply w-[35%] rounded-xl
+      @apply  mobile:w-[35%] rounded-xl ;
+      @apply laptop:w-[10%] ;
+
    }
       
 
-  
+  .containPage{
+
+   @apply laptop:flex 
+  }
   .documentsContainer{
    display:flex;
    flex-wrap: wrap;
    width:100vw;
    height: auto;
+   @apply laptop:w-[65%]
   }
   
+  .containerNav > a{
+
+   @apply laptop:w-[20%] 
+  }
   
   .liHeader{
    height: 100%;
    padding: 0px;
+   @apply laptop:w-[100%] 
   }
   a{
    width: 100%;
@@ -105,24 +123,28 @@
    bottom: 20px;
    left: 10px;
    margin-top: 1rem;
+   @apply laptop:flex-col transition-all w-[25%] h-[12rem] static place-content-between hover:border-[4px] border-gray-800 
   
   }
   .fileInput{
    width: 40%;
    border-radius: 5px;
    padding: 0.5rem;
+   @apply laptop:w-[95%] 
   }
 
   .textInput{
    width: 35%;
    border-radius: 5px;
    text-align: center;
+   @apply laptop:w-[95%]
   }
   .btnForm{
    background-color: white;
    
    padding: 0.5rem;
    border-radius: 5px;
+   @apply laptop:w-[95%]
   }
   
 
@@ -141,6 +163,7 @@
    width: 95%;
    height: auto;
    margin: 0 auto;
+   @apply laptop:w-[49%]
 }
 
 .button-headerUp{
@@ -187,6 +210,7 @@
 .pageTitleDiv{
    margin-top: 1rem;
    
+   
 }
 .pageTitle{
    background-color: #F7EAD6;
@@ -195,6 +219,9 @@
    border-radius: 5px;
    text-align: center;
    font-size: x-large;
+   margin-top: 1rem;
+   @apply laptop:mb-8 hover:border-blue-600
+
 
    
 }
@@ -210,6 +237,7 @@
    border:solid beige 5px;
    font-weight:600;
    font-size: larger;
+   @apply laptop:border-0 hover:border-blue-600
    
 
 
@@ -219,9 +247,8 @@
    flex-direction: column;
    width: 40%;
    margin: 0 auto;
-   margin-top: 1rem;
    padding: 0 0;
-
+   @apply laptop:w-[18%] m-[2.5rem] transition-all hover:border-4 border-blue-900
   }
   .imgItem{
    margin: 0 auto;
@@ -230,5 +257,8 @@
 
    border:solid #F7EAD6 4px;
    border-top: none;
+   @apply laptop:border-[3px]
   }
+
+
 }

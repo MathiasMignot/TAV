@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 const useUserStore = create((set) => ({
  userMail: '',
- isConnected: false,
+ isConnected: true,
  userToken:'',
  updateUserMail: (newMail)=> set({userMail: newMail}),
  updateIsConnected: (value)=> set({isConnected: value}),

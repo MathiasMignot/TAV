@@ -17,8 +17,8 @@ function Documents() {
 return(
     <div>
         <div className='titlePageDiv'>
-    <h1 className='pageTitle'> Documents
-    </h1>
+    <h1 className='pageTitle'> Autres Programmes</h1>
+    
         </div>
     <DocsContainer value={categoryId}/>
     </div>

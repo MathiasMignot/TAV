@@ -7,6 +7,8 @@ import Predication from './Predication.jsx';
 /* import History from './History.jsx'; */
 import WeeklyMeeting from './WeeklyMeeting.jsx';
 import Connexion from './Connexion.jsx';
+import Presentoire from './Presentoire ';
+
 // import Contact from './Contact.jsx';
 //import Login from './Login.jsx';
 
@@ -43,6 +45,11 @@ export const router = createBrowserRouter([
       {
         path: '/documents',
         element: <Documents />,
+        errorElement: <Error />,
+      },
+      {
+        path: '/presentoire',
+        element: <Presentoire />,
         errorElement: <Error />,
       }
     ]

@@ -40,7 +40,7 @@ function Header() {
 
     <header className='header'>
       <div className='headerUp'>
-      <img src={logo} alt="logo du site " className='logo'/>
+      <img src={logo} alt="logo du site " className="logo"/>
       <nav className='button-headerUp-nav'>
 
       <Link to='/'>
@@ -61,8 +61,8 @@ function Header() {
       <ul className='containerNav'>
        <Link to="/weeklyMeeting"><li  className='liHeader'><button className="btnHeader">Réunions de semaine</button></li></Link> 
        <Link to="/discours"> <li className='liHeader'><button className="btnHeader">Discours</button></li></Link> 
-       <Link to="/predication"> <li className='liHeader'><button className="btnHeader">Prédication</button></li></Link> 
-       <Link to="/documents"><li className='liHeader'><button className="btnHeader">Documents</button></li></Link> 
+       <Link to="/predication"> <li className='liHeader'><button className="btnHeader">Prédication</button></li></Link>        
+       <Link to="/documents"><li className='liHeader'><button className="btnHeader">Autres programmes</button></li></Link> 
       </ul>
       </nav>
 
