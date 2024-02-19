@@ -21,11 +21,15 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-
-
     }
+
+    .laptop-button-headerUp-nav{
+
+      @apply flex-row gap-10 mr-20 
+    }
+
     .btnHeader{
-        background-color: lightgray;
+        background-color: #F8ECDA;
         padding: 0.5rem;
         height: 100%;
         border: solid 1px;
@@ -33,11 +37,15 @@
         width: 100%;
         margin: 0;
         box-shadow: 10px;
-        @apply laptop:transition-all hover:bg-[#F8ECDA] hover:w-[110%] hover:h-[110%] hover:border-2 
+     }
+     .laptopbtnHeader{
+      @apply transition-all duration-0 text-2xl hover:duration-300  hover:border-2 hover:w-[110%] hover:h-[110%] 
+
      }
      body{
       background-attachment: fixed;
       height: 100%;
+      margin: auto;
    
       @apply  bg-bethel bg-cover bg-center 
    }
@@ -52,13 +60,20 @@
      .container_link_homePage{
       
         @apply bg-[#D3D0CB] w-[90%] bg-opacity-50 flex flex-wrap justify-center  m-auto py-2;
-        @apply laptop:w-[90%] flex place-content-evenly py-8 
+        @apply laptop:w-[90%] flex place-content-evenly py-8 mt-[8rem]
+     }
+
+     .laptop_container_link_homePage{
+      @apply w-[90%] flex place-content-evenly py-8 
 
      }
      .container_link_homePage_item{
         @apply w-[40%] bg-[#D3D0CB] border-2 border-[#393E41] text-center py-4 px-4 m-2 shadow-xl rounded-xl hover:bg-[#E7BB41] ;
-        @apply laptop:w-[20%] border-4 transition-all hover:bg-blue-600 hover:w-[21%]
   
+      }
+      .laptop_container_link_homePage_item{
+         @apply w-[20%] border-4 transition-all hover:bg-blue-600 hover:w-[21%]
+
       }
    .bodyHomePage{
       @apply w-[100%] mt-[2rem]
@@ -74,21 +89,36 @@
    }
    .logo{
       @apply  mobile:w-[35%] rounded-xl ;
+
+   }
+   .laptopLogo{
       @apply laptop:w-[10%] ;
 
    }
       
 
   .containPage{
+   @apply mobile:flex ;
 
-   @apply laptop:flex 
   }
   .documentsContainer{
    display:flex;
+   align-content: center;
    flex-wrap: wrap;
    width:100vw;
    height: auto;
-   @apply laptop:w-[65%]
+   margin: auto;
+   margin-top: 2rem;
+   margin-bottom: 20rem;
+  }
+
+  .laptopcontainPage{
+   @apply flex flex-row m-0
+  }
+  
+  .laptopDocumentsContainer{
+
+   @apply w-[65%] m-auto
   }
   
   .containerNav > a{
@@ -99,7 +129,8 @@
   .liHeader{
    height: 100%;
    padding: 0px;
-   @apply laptop:w-[100%] 
+   @apply landscape:h-[100%]
+  
   }
   a{
    width: 100%;
@@ -108,43 +139,34 @@
   }
 
   .formContainer{
-   display: flex;
-   justify-content:space-between;
-   width: 95%;
-   background-color: lightgray;
-   padding: 1rem;
-   border-radius: 0.75rem;
-   margin: auto;
-   position: relative;
-   bottom: 20px;
-   left: 10px;
-   margin-top: 1rem;
-   position: sticky;
-   bottom: 20px;
-   left: 10px;
-   margin-top: 1rem;
-   @apply laptop:flex-col transition-all w-[25%] h-[12rem] static place-content-between hover:border-[4px] border-gray-800 
+   @apply flex bg-[#D3D3D3] place-content-evenly content-center w-[98%] rounded-[0.75rem] gap-2 fixed bottom-2 left-0 right-0 p-4 m-auto mt-8 mb-[1rem];
   
   }
+
+  .laptopFormContainer{
+
+   @apply flex flex-col transition-all w-[20%] h-[30vh] static content-around items-center hover:border-[4px] border-gray-800 ;
+
+}
+ 
   .fileInput{
-   width: 40%;
+  width: 30%;
    border-radius: 5px;
-   padding: 0.5rem;
-   @apply laptop:w-[95%] 
+  
   }
 
   .textInput{
-   width: 35%;
+   width: 40%;
    border-radius: 5px;
    text-align: center;
-   @apply laptop:w-[95%]
+ 
   }
   .btnForm{
+   width: 23%;
    background-color: white;
-   
-   padding: 0.5rem;
    border-radius: 5px;
-   @apply laptop:w-[95%]
+   padding: 0.25rem;
+  
   }
   
 
@@ -163,7 +185,11 @@
    width: 95%;
    height: auto;
    margin: 0 auto;
-   @apply laptop:w-[49%]
+   @apply transition-all duration-500
+}
+.laptopSingleDoc{
+
+   @apply w-[45%] 
 }
 
 .button-headerUp{
@@ -173,6 +199,10 @@
    border-radius: 0.5rem;
    margin-bottom: 10px;
    box-shadow: 3px 3px grey;
+}
+.laptop_button-headerUp{
+
+   @apply p-4 w-[80%] m-8 transition-all hover:duration-300 hover:border-4 border-gray-800 
 }
 
 .formContainerLogin{
@@ -186,8 +216,11 @@
    border-radius: 0.75rem;
    margin: 0 auto;
    margin-top: 10rem;
-   position:sticky;
-   bottom: 10px ;
+  
+}
+.laptopformContainerLogin{
+
+   @apply w-[40%] h-[15rem] hover:border-4 border-gray-800 transition-all
 }
 
 .btnFormLogin{
@@ -220,15 +253,19 @@
    text-align: center;
    font-size: x-large;
    margin-top: 1rem;
-   @apply laptop:mb-8 hover:border-blue-600
-
-
-   
+ 
+}
+.laptoppageTitle{
+   @apply p-4 px-8 text-5xl m-10 self-start
 }
 .titlePageDiv{
    display: flex;
+   text-align: center;
    justify-content: center;
+   align-items: basis;
+   @apply gap-20
 }
+
      
 .titleDocContainer{
    
@@ -243,12 +280,21 @@
 
 }
 .documentContainer{
-   display: flex;
-   flex-direction: column;
-   width: 40%;
-   margin: 0 auto;
-   padding: 0 0;
-   @apply laptop:w-[18%] m-[2.5rem] transition-all hover:border-4 border-blue-900
+   @apply flex transition-all duration-500 flex-wrap flex-col w-[55%] m-auto mb-[4rem] p-0 ;
+  }
+
+  
+  .laptopDocumentContainer{
+
+   @apply w-[18%] m-[2.5rem] hover:border-4 border-blue-900 
+   
+  }
+  .tabletDocumentContainer{
+
+   @apply w-[35%] 
+  }
+  .tabletSingleDoc{
+   @apply w-[95%] landscape:w-[200%]
   }
   .imgItem{
    margin: 0 auto;
@@ -260,5 +306,24 @@
    @apply laptop:border-[3px]
   }
 
+  .link_presentoire{
+   @apply flex flex-col-reverse place-content-between border-2 border-gray-900 rounded-xl bg-presentoire bg-no-repeat bg-contain bg-center h-[10rem] w-[10rem] mt-10 hover:border-4 
+  }
+  .laptop_link_presentoire{
+   
+   @apply flex-col-reverse place-content-between border-2 border-gray-900 rounded-xl bg-presentoire bg-no-repeat bg-contain bg-center h-[10rem] w-[10rem] mt-10 hover:border-4 
+  }
 
+.laptoptitlePageDiv{
+   @apply flex gap-32
+}
+
+.btnPresLink{
+   @apply bg-[#B0C4DE] mb-2 p-0 bg-opacity-80 text-lg border-2 hover:border-4 
+
+}
+.laptopbtnPresLink{
+
+   @apply bg-[#B0C4DE] mb-2 p-0 bg-opacity-80 text-lg border-2 hover:border-4 
+}
 }

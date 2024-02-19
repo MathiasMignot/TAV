@@ -7,8 +7,8 @@ function Discours () {
 
     return(
         <div>
-            <div className='titlePageDiv'>
-        <h1 className='pageTitle'>Discours</h1>
+            <div className='titlePageDiv '>
+        <h1 className='pageTitle laptop:laptoppageTitle landscape:text-2xl'>Discours</h1>
         </div>
         <DocsContainer value={categoryId}/>
         </div>

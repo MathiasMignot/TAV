@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import DocsContainer from './DocsContainer';
 import { Link, useNavigate } from 'react-router-dom';
+import presentoire from './assets/presentoire.jpg'
 
 
 function Predication() {
@@ -9,10 +10,11 @@ function Predication() {
 
     return(
         <div>
-            <div className='titlePageDiv'>
-        <h1 className='pageTitle'> Prédication</h1>
-        <Link  className='container_link_homePage_item' to="/Presentoire"><button className="btnHeader">Présentoire</button></Link> 
-
+            <div className=' titlePageDiv laptop:laptoptitlePageDiv tablet:items-center gap-40'>
+        <h1 className='pageTitle h-[50%] laptop:laptoppageTitle tablet:text-5xl landscape:text-2xl'> Prédication</h1>
+        <Link className='link_presentoire laptop:laptop_link_presentoire' to='/presentoire'>
+                    <button className='btnPresLink laptop:laptopbtnPresLink'>Programme présentoire</button>
+                    </Link>
         </div>
         <DocsContainer value={categoryId}/>
         </div>

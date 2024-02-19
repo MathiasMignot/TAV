@@ -17,7 +17,7 @@ function Documents() {
 return(
     <div>
         <div className='titlePageDiv'>
-    <h1 className='pageTitle'> Autres Programmes</h1>
+    <h1 className='pageTitle laptop:laptoppageTitle landscape:text-2xl'> Autres Programmes</h1>
     
         </div>
     <DocsContainer value={categoryId}/>

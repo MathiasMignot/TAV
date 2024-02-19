@@ -31,16 +31,19 @@ export default function FormDoc({value,setDocumentCollection}){
         
 
 
-        axios.post('http://localhost:3000/api/documents', formdata, {
+        axios.post(`${import.meta.env.VITE_APIURL}documents`, formdata, {
             headers: {Authorization: `Bearer ${updateUserToken}` ,
                 'Content-Type': 'multipart/form-data'
             }
         }).then(response => {
+            console.log(response.data.document);
             value.setDocumentCollection(prev => {
                 return [...prev,response.data]
                 
             })
-        })
+        }).catch(error => {
+            console.error(error);
+        });
     setDocumentUserName("")
            }else{
            alert('Pas de fichier selectionné')
@@ -50,10 +53,10 @@ export default function FormDoc({value,setDocumentCollection}){
 
     return(
 
-        <form className='formContainer ' onSubmit={handleSubmitForm}>
-                <input className='fileInput ' type="file" name="file" onChange={(e) => { setFile(e.target.files[0]) }} />
-                <input className='textInput '  placeholder='Nom du fichier' type="text" name="document_name"  value={documentUserName} onChange={(e) => { setDocumentUserName(e.target.value) }} />
-                <button className='btnForm 'type='submit'>envoie</button>
+        <form className='formContainer laptop:laptopFormContainer landscape:w-[40%] landscape:mr-2' onSubmit={handleSubmitForm}>
+                <input className='fileInput laptop:w-[95%]' type="file" name="file" onChange={(e) => { setFile(e.target.files[0]) }} />
+                <input className='textInput laptop:w-[95%]'  placeholder='Nom du document' type="text" name="document_name"  value={documentUserName} onChange={(e) => { setDocumentUserName(e.target.value) }} />
+                <button className='btnForm laptop:w-[95%]'type='submit'>Ajouter le document</button>
             </form>
                           
     )

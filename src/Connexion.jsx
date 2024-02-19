@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import  useUserStore  from './userStore.js';
+import React from "react";
 
 export default function Connexion(){
    
@@ -12,6 +13,7 @@ export default function Connexion(){
     const updateUserMail = useUserStore(state => state.updateUserMail)
     const updateIsConnected = useUserStore(state => state.updateIsConnected)
     const updateUserToken = useUserStore(state => state.updateUserToken)
+    console.log(import.meta.env.VITE_APIURL);
 
     const navigate = useNavigate();
     let connected = false;
@@ -34,7 +36,7 @@ const handleConnect = (e) => {
 
         
 
-        axios.post('http://localhost:3000/api/users/login', formdata,{
+        axios.post(`${import.meta.env.VITE_APIURL}users/login`, formdata,{
         
     }).then(function(response){
         
@@ -53,7 +55,7 @@ const handleConnect = (e) => {
 }
     return(
 
-        <form className="formContainerLogin" action="post" onSubmit={handleConnect}>
+        <form className="formContainerLogin laptopformContainerLogin tablet:w-[80%]" action="post" onSubmit={handleConnect}>
             <label htmlFor="email">Votre email</label>
             <input type="email" id="email" placeholder="email.exemple@gmail.com" />
 

@@ -24,7 +24,7 @@ function Header() {
 
   axios({
     method: 'get',
-    url: 'http://localhost:3000/api/users/logout',
+    url: `${import.meta.env.VITE_APIURL}users/logout`,
     headers: {Authorization: `Bearer ${userToken}`}
   }).then(() =>{
 
@@ -40,18 +40,18 @@ function Header() {
 
     <header className='header'>
       <div className='headerUp'>
-      <img src={logo} alt="logo du site " className="logo"/>
-      <nav className='button-headerUp-nav'>
+      <img src={logo} alt="logo du site " className="logo laptop:laptopLogo tablet:w-[20%] landscape:w-[15%]"/>
+      <nav className='button-headerUp-nav laptop:laptop-button-headerUp-nav'>
 
       <Link to='/'>
-              <button className="button-headerUp">Acceuil</button>
+              <button className="button-headerUp laptop:laptop_button-headerUp landscape:w-[60%] landscape:py-2">Acceuil</button>
             </Link> 
 
     <div>
       {isConnected ? 
-        <button className="button-headerUp" onClick={handleLogout}>Déconnexion</button>      :
+        <button className="button-headerUp laptop:laptop_button-headerUp landscape:w-[60%] landscape:py-2" onClick={handleLogout}>Déconnexion</button>      :
       <Link to='/connexion'>
-              <button className="button-headerUp">Connexion</button>
+              <button className="button-headerUp laptop:laptop_button-headerUp landscape:w-[60%] landscape:py-2">Connexion</button>
             </Link> 
     }
             </div>
@@ -59,10 +59,10 @@ function Header() {
             </div>
        <nav>
       <ul className='containerNav'>
-       <Link to="/weeklyMeeting"><li  className='liHeader'><button className="btnHeader">Réunions de semaine</button></li></Link> 
-       <Link to="/discours"> <li className='liHeader'><button className="btnHeader">Discours</button></li></Link> 
-       <Link to="/predication"> <li className='liHeader'><button className="btnHeader">Prédication</button></li></Link>        
-       <Link to="/documents"><li className='liHeader'><button className="btnHeader">Autres programmes</button></li></Link> 
+       <Link to="/weeklyMeeting"><li  className='liHeader tablet:px-2 land'><button className="btnHeader laptop:laptopbtnHeader tablet:text-2xl landscape:text-lg  ">Réunions de semaine</button></li></Link> 
+       <Link to="/discours"> <li className='liHeader tablet:px-2'><button className="btnHeader laptop:laptopbtnHeader tablet:text-2xl landscape:text-lg">Discours</button></li></Link> 
+       <Link to="/predication"> <li className='liHeader tablet:px-2'><button className="btnHeader laptop:laptopbtnHeader tablet:text-2xl landscape:text-lg">Prédication</button></li></Link>        
+       <Link to="/documents"><li className='liHeader tablet:px-2'><button className="btnHeader laptop:laptopbtnHeader tablet:text-2xl landscape:text-lg">Autres programmes</button></li></Link> 
       </ul>
       </nav>
 

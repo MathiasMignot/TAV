@@ -9,7 +9,7 @@ function WeeklyMeeting () {
     return(
         <div>
              <div className='titlePageDiv'>
-        <h1 className='pageTitle'> Réunion de semaine</h1>
+        <h1 className='pageTitle laptop:laptoppageTitle tablet:text-5xl landscape:text-2xl'> Réunion de semaine</h1>
         </div>
         <DocsContainer value={categoryId}/>
         </div>

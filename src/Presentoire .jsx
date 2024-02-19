@@ -20,7 +20,7 @@ export default function Presentoire() {
     useEffect(() => {
         
         async function fetchdata() {
-            await axios.get(`http://localhost:3000/api/documents/presentoire/doc`
+            await axios.get(`${import.meta.env.VITE_APIURL}documents/presentoire/doc`
             )
             .then((response) => {
                 setDocumentCollection(response.data)
@@ -32,20 +32,23 @@ export default function Presentoire() {
     }, [])
 
 
-   const maximizeDoc = (e) => {
-    console.log('ça clique');
-            const divId = e.currentTarget.id
-            const divEl = document.getElementById(divId) ; 
-            console.log(divEl);
-            if(divEl.className === 'documentContainer'){
-                divEl.classList.remove("documentContainer")
-                divEl.classList.add("singleDoc")
-            }else if(divEl.className === "singleDoc"){
-                divEl.classList.remove("singleDoc")
-                divEl.classList.add("documentContainer")
-            }
-            
+    const maximizeDoc = (e) => {
+      
+        const divId = e.currentTarget.id
+        console.log(divId);
+        const divEl = document.getElementById(divId);
+        console.log(divEl);
+        if (divEl.className === "documentContainer laptop:laptopDocumentContainer tablet:tabletDocumentContainer") {
+            divEl.classList.remove("documentContainer","laptop:laptopDocumentContainer","tablet:tabletDocumentContainer")
+            divEl.classList.add("singleDoc","laptop:laptopSingleDoc","tablet:tabletSingleDoc")
+           
+
+        } else if (divEl.className === "singleDoc laptop:laptopSingleDoc tablet:tabletSingleDoc") {
+            divEl.classList.remove("singleDoc","laptop:laptopSingleDoc","tablet:tabletSingleDoc")
+            divEl.classList.add("documentContainer","laptop:laptopDocumentContainer","tablet:tabletDocumentContainer")
         }
+
+    }
         
         
         
@@ -66,7 +69,7 @@ export default function Presentoire() {
             formdata.append("document", file.name)
             formdata.append("category_id",Number(categoryChoice.selectedIndex +4))
 
-        axios.post('http://localhost:3000/api/documents', formdata, {
+        axios.post(`${import.meta.env.VITE_APIURL}documents`, formdata, {
             headers: {Authorization: `Bearer ${updateUserToken}` ,
                 'Content-Type': 'multipart/form-data'
             }
@@ -89,7 +92,7 @@ export default function Presentoire() {
         const docId = e.currentTarget.id
     
         
-        axios.delete(`http://localhost:3000/api/documents/${docId}`,{
+        axios.delete(`${import.meta.env.VITE_APIURL}documents/${docId}`,{
             headers: {Authorization: `Bearer ${updateUserToken}` ,
                 'Content-Type': 'multipart/form-data'
             }
@@ -107,13 +110,14 @@ export default function Presentoire() {
     return(
         <div>
             <div className='titlePageDiv'>
-        <h1 className='pageTitle'> Présentoire</h1>        
+        <h1 className='pageTitle laptop:laptoppageTitle landscape:text-2xl'> Présentoire</h1>        
         </div>
+        <div className="containPage laptop:laptopcontainPage">
 
-        <div id='wrap' className='documentsContainer'>
+        <div id='wrap' className="documentsContainer laptop:laptopDocumentsContainer gap-2">
                     {documentCollection && documentCollection.map(document =>
 
-                        <div className="documentContainer" id={'file'+ document.id } key={document.id} onClick={maximizeDoc}>
+                        <div className="documentContainer laptop:laptopDocumentContainer tablet:tabletDocumentContainer" id={'file'+ document.id } key={document.id} onClick={maximizeDoc}>
                             <p className='titleDocContainer'>{document.document_name}</p>
                             <img className='imgItem' src={document.document} alt="" />
                             {isConnected &&
@@ -121,17 +125,15 @@ export default function Presentoire() {
                              }
                             
                             </div>
-                          
-
-
                     )
                     }
+       </div>
        
         {isConnected &&
         
-        <form className='formContainer' onSubmit={handleSubmitForm} >
-                            <input className='fileInput' type="file" name="file" onChange={(e) => { setFile(e.target.files[0]) }} />
-                            <select  name="" id="weekChoice">
+        <form className='formContainer laptop:laptopFormContainer items-center tablet:m-2' onSubmit={handleSubmitForm} >
+                            <input className='fileInput laptop:w-[95%]' type="file" name="file" onChange={(e) => { setFile(e.target.files[0]) }} />
+                            <select className='laptop:w-[95%]'  name="" id="weekChoice">
                                 <option selected="selected" value="">Choix de la semaine</option>
                                 <option id='5' value="Mardi St-Ambroix">Mardi St-Ambroix</option>
                                 <option id='6' value="Jeudi Bessèges">Jeudi Bessèges</option>
@@ -140,7 +142,7 @@ export default function Presentoire() {
                                 </select>
 
 
-                            <button className='btnForm'type='submit'>envoie</button>
+                            <button className='btnForm laptop:w-[95%]'type='submit'>Ajouter le document</button>
                         </form>   }
         </div>
         </div>

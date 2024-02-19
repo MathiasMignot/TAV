@@ -21,10 +21,11 @@ export default function DocsContainer({ value }) {
     const updateUserToken = useUserStore(state => state.updateUserToken)
 
 
+
     useEffect(() => {
 
         async function fetchdata() {
-            await axios.get(`http://localhost:3000/api/documents/category/${value}`
+            await axios.get(`${import.meta.env.VITE_APIURL}documents/category/${value}`
             )
                 .then((response) => {
                     setDocumentCollection(response.data)
@@ -43,12 +44,14 @@ export default function DocsContainer({ value }) {
         console.log(divId);
         const divEl = document.getElementById(divId);
         console.log(divEl);
-        if (divEl.className === 'documentContainer') {
-            divEl.classList.remove("documentContainer")
-            divEl.classList.add("singleDoc")
-        } else if (divEl.className === "singleDoc") {
-            divEl.classList.remove("singleDoc")
-            divEl.classList.add("documentContainer")
+        if (divEl.className === "documentContainer laptop:laptopDocumentContainer tablet:tabletDocumentContainer") {
+            divEl.classList.remove("documentContainer","laptop:laptopDocumentContainer","tablet:tabletDocumentContainer")
+            divEl.classList.add("singleDoc","laptop:laptopSingleDoc","tablet:tabletSingleDoc")
+           
+
+        } else if (divEl.className === "singleDoc laptop:laptopSingleDoc tablet:tabletSingleDoc") {
+            divEl.classList.remove("singleDoc","laptop:laptopSingleDoc","tablet:tabletSingleDoc")
+            divEl.classList.add("documentContainer","laptop:laptopDocumentContainer","tablet:tabletDocumentContainer")
         }
 
     }
@@ -66,7 +69,7 @@ export default function DocsContainer({ value }) {
         const docId = e.currentTarget.id
 
 
-        axios.delete(`http://localhost:3000/api/documents/${docId}`, {
+        axios.delete(`${import.meta.env.VITE_APIURL}documents/${docId}`, {
             headers: {
                 Authorization: `Bearer ${updateUserToken}`,
                 'Content-Type': 'multipart/form-data'
@@ -91,16 +94,17 @@ export default function DocsContainer({ value }) {
     if (!isLoaded) {
 
         return (
-            <div className="containPage">
-            <div id='wrap' className='documentsContainer'>
+            <div className="containPage laptop:laptopcontainPage">
+            <div id='wrap' className='documentsContainer laptop:laptopDocumentsContainer'>
                 {documentCollection && documentCollection.map(document =>
 
-                    <div className="documentContainer" id={'file' + document.id} key={document.id} onClick={maximizeDoc}>
-                        <p className='titleDocContainer'>{document.document_name}</p>
-                        <img className='imgItem' src={document.document} alt="" />
+                    <div className="documentContainer laptop:laptopDocumentContainer tablet:tabletDocumentContainer" id={'file' + document.id} key={document.id} onClick={maximizeDoc}>
                         {isConnected &&
                             <button id={document.id} onClick={handleDeleteDoc}><span className="material-symbols-outlined">delete</span></button>
                         }
+                        <p className='titleDocContainer'>{document.document_name}</p>
+                        <img className='imgItem' src={document.document} alt="" />
+                        
 
                     </div>
                 )}
